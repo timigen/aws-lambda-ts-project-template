@@ -1,1 +1,0 @@
-console.log("AWS Lambda Typescipt Template");
