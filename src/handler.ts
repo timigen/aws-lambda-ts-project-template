@@ -1,6 +1,6 @@
-export const handler = async(event: any) => {
-  return  {
+export const handler = async (event: any) => {
+  return {
     statusCode: 200,
-    body: JSON.stringify({'message': 'AWS Lambda Typescipt Template' }),
+    body: JSON.stringify({ message: "AWS Lambda Typescipt Template" }),
   };
 };
