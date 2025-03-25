@@ -6,5 +6,14 @@ import {
 export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  return { statusCode: 200, body: JSON.stringify(event) };
+  try {
+    const body = JSON.parse(event.body || '');
+
+    if(!body) return { statusCode: 500, body: "ERROR" };
+    
+    return { statusCode: 200, body: JSON.stringify(event) };
+  } catch(err){
+    console.error(err);
+    return { statusCode: 500, body: "ERROR" };
+  }
 };
