@@ -1,5 +1,6 @@
 {
   "name": "aws-lambda-ts-project-template",
+  "type": "module",
   "version": "0.0.0",
   "description": "aws lambda typecript template project",
   "main": "index.js",
