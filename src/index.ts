@@ -1,11 +1,12 @@
 import {
-  APIGatewayProxyEvent,
-  APIGatewayProxyResult,
+  APIGatewayProxyEventV2,
+  APIGatewayProxyStructuredResultV2,
 } from "aws-lambda/trigger/api-gateway-proxy";
 
 export const handler = async (
-  event: APIGatewayProxyEvent
-): Promise<APIGatewayProxyResult> => {
+  event: APIGatewayProxyEventV2
+): Promise<APIGatewayProxyStructuredResultV2> => {
+  console.info(`__ START @ ${new Date().toISOString()} ____`);
   try {
     const body = JSON.parse(event.body || '');
 
@@ -16,4 +17,7 @@ export const handler = async (
     console.error(err);
     return { statusCode: 500, body: "ERROR" };
   }
+   finally {
+    console.info(`__END ${new Date().toISOString()}___`);
+   }
 };
